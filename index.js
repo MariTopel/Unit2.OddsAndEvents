@@ -10,7 +10,8 @@ document.body.appendChild(inputNumber);
 
 // button for click to input numbers
 const button = document.createElement("button");
-button.textContent = "Submit Number with spaces";
+button.textContent =
+  "Submit Number with spaces between the desired number input";
 document.body.appendChild(button);
 
 // sort 1 button
@@ -25,16 +26,34 @@ document.body.appendChild(bank);
 const showBank = document.createElement("ul");
 document.body.appendChild(showBank);
 
-// added styling to make the box around the numbers
-showBank.style.border = "1px solid #ccc";
-showBank.style.padding = "8px";
-showBank.style.width = "200px";
-showBank.style.minHeight = "20px";
-showBank.style.marginTop = "10px";
-showBank.style.borderRadius = "4px";
-showBank.style.fontFamily = "sans-serif";
-showBank.style.listStyle = "none";
-showBank.style.backgroundColor = "#fff";
+// odd numbers
+const oddsNum = document.createElement("h3");
+oddsNum.textContent = "ODDS";
+document.body.appendChild(oddsNum);
+const showOdds = document.createElement("ul");
+document.body.appendChild(showOdds);
+
+// even numbers
+const evenNum = document.createElement("h3");
+evenNum.textContent = "EVENS";
+document.body.appendChild(evenNum);
+const showEvens = document.createElement("ul");
+document.body.appendChild(showEvens);
+
+// reusable function to use for each box
+function styleBox(box) {
+  box.style.border = "1px solid #ccc";
+  box.style.padding = "8px";
+  box.style.width = "200px";
+  box.style.minHeight = "20px";
+  box.style.marginTop = "10px";
+  box.style.borderRadius = "4px";
+  box.style.fontFamily = "sans-serif";
+  box.style.listStyle = "none";
+  box.style.backgroundColor = "#fff";
+}
+
+[showBank, showOdds, showEvens].forEach(styleBox);
 
 const bankList = [];
 
