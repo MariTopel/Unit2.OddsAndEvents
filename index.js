@@ -19,6 +19,11 @@ const sort1 = document.createElement("button");
 sort1.textContent = "Sort 1";
 document.body.appendChild(sort1);
 
+// sortall button
+const sortAll = document.createElement("button");
+sortAll.textContent = "Sort All";
+document.body.appendChild(sortAll);
+
 // making the bank
 const bank = document.createElement("h3");
 bank.textContent = "Banked";
@@ -121,5 +126,12 @@ function sortNumbers() {
   }
 }
 
-// sort 1 button function to sort odds and evens
+// sort 1 button with function to sort odds and evens
 sort1.addEventListener("click", sortNumbers);
+
+// sort all button with function to sort all odds and evens at the same time
+sortAll.addEventListener("click", (allNum) => {
+  while (bankList.length > 0) {
+    sortNumbers();
+  }
+});
