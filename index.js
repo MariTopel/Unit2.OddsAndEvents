@@ -55,6 +55,21 @@ function styleBox(box) {
 
 [showBank, showOdds, showEvens].forEach(styleBox);
 
+[showBank, showOdds, showEvens].forEach((box) => {
+  box.style.display = "flex";
+  box.style.flexWrap = "wrap";
+  box.style.gap = "6px";
+  box.style.border = "1px solid #ccc";
+  box.style.padding = "8px";
+  box.style.width = "200px";
+  box.style.minHeight = "20px";
+  box.style.marginTop = "10px";
+  box.style.borderRadius = "4px";
+  box.style.fontFamily = "sans-serif";
+  box.style.listStyle = "none";
+  box.style.backgroundColor = "#fff";
+});
+
 const bankList = [];
 
 // button with event listener to execute commands
