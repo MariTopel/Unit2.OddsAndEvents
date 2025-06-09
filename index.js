@@ -55,7 +55,8 @@ function styleBox(box) {
 
 [showBank, showOdds, showEvens].forEach(styleBox);
 
-[showBank, showOdds, showEvens].forEach((box) => {
+// styling for the numbers in the boxes so they go horizontal instead of vertical
+function styleNumbers(box) {
   box.style.display = "flex";
   box.style.flexWrap = "wrap";
   box.style.gap = "6px";
@@ -68,7 +69,9 @@ function styleBox(box) {
   box.style.fontFamily = "sans-serif";
   box.style.listStyle = "none";
   box.style.backgroundColor = "#fff";
-});
+}
+
+[showBank, showOdds, showEvens].forEach(styleNumbers);
 
 const bankList = [];
 
@@ -94,4 +97,49 @@ button.addEventListener("click", () => {
   });
 
   inputNumber.value = "";
+});
+
+function sortNumbers() {
+  if (bankList.length === 0) {
+    alert("No numbers in bank.");
+    return;
+  }
+
+  const num = bankList.shift();
+  const firstLi = showBank.querySelector("li");
+  if (firstLi) {
+    showBank.removeChild(firstLi);
+  }
+
+  const listItem = document.createElement("li");
+  listItem.textContent = num;
+
+  if (num % 2 === 0) {
+    showEvens.appendChild(listItem);
+  } else {
+    showOdds.appendChild(listItem);
+  }
+}
+
+// sort 1 button function to sort odds and evens
+sort1.addEventListener("click", (sort) => {
+  if (bankList.length === 0) {
+    alert("No numbers in bank.");
+    return;
+  }
+
+  const num = bankList.shift();
+  const firstLi = showBank.querySelector("li");
+  if (firstLi) {
+    showBank.removeChild(firstLi);
+  }
+
+  const listItem = document.createElement("li");
+  listItem.textContent = num;
+
+  if (num % 2 === 0) {
+    showEvens.appendChild(listItem);
+  } else {
+    showOdds.appendChild(listItem);
+  }
 });
