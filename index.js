@@ -24,6 +24,11 @@ const sortAll = document.createElement("button");
 sortAll.textContent = "Sort All";
 document.body.appendChild(sortAll);
 
+// random number button
+const randomNumber = document.createElement("button");
+randomNumber.textContent = "Random Number";
+document.body.appendChild(randomNumber);
+
 // making the bank
 const bank = document.createElement("h3");
 bank.textContent = "Banked";
@@ -134,4 +139,9 @@ sortAll.addEventListener("click", (allNum) => {
   while (bankList.length > 0) {
     sortNumbers();
   }
+});
+
+randomNumber.addEventListener("click", (random) => {
+  const randNum = Math.floor(Math.random() * 100) + 1;
+  inputNumber.value = randNum.toString();
 });
