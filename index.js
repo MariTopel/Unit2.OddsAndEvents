@@ -7,7 +7,16 @@ inputNumber.setAttribute("placeholder", "type numbers here");
 
 document.body.appendChild(inputNumber);
 
-inputNumber.addEventListener("change", (num) => {
+const button = document.createElement("button");
+button.textContent = "Submit Number";
+document.body.appendChild(button);
+
+button.addEventListener("click", () => {
   const number = parseFloat(inputNumber.value);
-  alert(`User entered ${number}`);
+
+  if (isNaN(number)) {
+    alert("not a valid number");
+  } else {
+    alert(`You entered ${number}`);
+  }
 });
