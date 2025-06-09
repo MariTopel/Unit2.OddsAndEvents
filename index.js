@@ -122,24 +122,4 @@ function sortNumbers() {
 }
 
 // sort 1 button function to sort odds and evens
-sort1.addEventListener("click", (sort) => {
-  if (bankList.length === 0) {
-    alert("No numbers in bank.");
-    return;
-  }
-
-  const num = bankList.shift();
-  const firstLi = showBank.querySelector("li");
-  if (firstLi) {
-    showBank.removeChild(firstLi);
-  }
-
-  const listItem = document.createElement("li");
-  listItem.textContent = num;
-
-  if (num % 2 === 0) {
-    showEvens.appendChild(listItem);
-  } else {
-    showOdds.appendChild(listItem);
-  }
-});
+sort1.addEventListener("click", sortNumbers);
